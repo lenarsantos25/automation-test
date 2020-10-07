@@ -15,12 +15,12 @@ public class CheckinTest extends ConfigurationSetup{
 	CheckinAction checkInAction;
 
 	@BeforeTest
-	public void Init() throws Exception {
+	public void init() throws Exception {
 		setup();
 	}
 
 	@BeforeMethod
-	public void Browser() throws Exception {
+	public void browser() throws Exception {
 		launchURL();
 	}
 	
@@ -28,18 +28,17 @@ public class CheckinTest extends ConfigurationSetup{
 	public void CheckinPages() throws InterruptedException {
 		checkInAction = new CheckinAction(driver);
 		PageFactory.initElements(driver, CheckinTest.class);
-		checkInAction.CheckIn();
+		checkInAction.checkIn();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
 	@AfterMethod
-	public void CloseTabs() {
-		driver.close();
-		driver.quit();
+	public void closeTabs() {
+		closeAllTabs();
 	}
 
 	@AfterTest
-	public void ExitDriver() {
-		driver.quit();
+	public void quitDriver() {
+		exitDriver();
 	}
 }

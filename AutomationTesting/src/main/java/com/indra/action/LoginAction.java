@@ -3,7 +3,7 @@ package com.indra.action;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.indra.action.resources.CommonActions;
+import com.indra.constants.CommonActions;
 import com.indra.pages.LoginPage;
 public class LoginAction extends LoginPage {
 
@@ -16,7 +16,7 @@ public class LoginAction extends LoginPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void SignUpAirasia(String email, String password) throws InterruptedException {
+	public void signUpAirasia(String email, String password) throws InterruptedException {
 		commonAction.waitUntilTheElementIsVisible(driver, buttonTop, 10);
 		if (!buttonTop.isDisplayed()) {
 			loginSignUpButton.click();
@@ -28,9 +28,10 @@ public class LoginAction extends LoginPage {
 		commonAction.inputUsernameOrEmailAndPassword(emailId, email, emailPassId, password);
 		Thread.sleep(2000);
 		commonAction.clickAction(signupButton);
+		Thread.sleep(2000);
 	}
 
-	public void LoginAirasia(String username, String pass) throws InterruptedException {
+	public void loginAirasia(String username, String pass) throws InterruptedException {
 		commonAction.waitUntilTheElementIsVisible(driver, buttonTop, 10);
 		if (!buttonTop.isDisplayed()) {
 			loginSignUpButton.click();
@@ -40,9 +41,10 @@ public class LoginAction extends LoginPage {
 		commonAction.inputUsernameOrEmailAndPassword(usernameId, username, passwordId, pass);
 		Thread.sleep(2000);
 		commonAction.clickAction(loginButton);
+		Thread.sleep(2000);
 	}
 
-	public void ForgotPassword() throws InterruptedException {
+	public void forgotPassword() throws InterruptedException {
 		commonAction.waitUntilTheElementIsVisible(driver, buttonTop, 10);
 		if (!buttonTop.isDisplayed()) {
 			loginSignUpButton.click();
@@ -58,10 +60,11 @@ public class LoginAction extends LoginPage {
 		commonAction.inputAction(forgotEmail, "test@gmail.com");
 		Thread.sleep(2000);
 		commonAction.clickAction(loginButton);
+		Thread.sleep(2000);
 
 	}
 
-	public void LoginWithFacebook(String email, String pass) throws Exception {
+	public void loginWithFacebook(String email, String pass) throws Exception {
 		commonAction.waitUntilTheElementIsVisible(driver, buttonTop, 10);
 		if (!buttonTop.isDisplayed()) {
 			loginSignUpButton.click();
@@ -81,7 +84,7 @@ public class LoginAction extends LoginPage {
 		
 	}
 
-	public void LoginWithGoogle(String email) throws Exception {
+	public void loginWithGoogle(String email) throws Exception {
 		commonAction.waitUntilTheElementIsVisible(driver, buttonTop, 10);
 		if (!buttonTop.isDisplayed()) {
 			loginSignUpButton.click();
@@ -96,7 +99,7 @@ public class LoginAction extends LoginPage {
 		Thread.sleep(3000);
 	}
 
-	public void LoginWithWeChat() throws InterruptedException {
+	public void loginWithWeChat() throws InterruptedException {
 		commonAction.waitUntilTheElementIsVisible(driver, buttonTop, 10);
 		if (!buttonTop.isDisplayed()) {
 			loginSignUpButton.click();

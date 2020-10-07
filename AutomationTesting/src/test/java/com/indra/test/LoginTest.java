@@ -1,6 +1,8 @@
 package com.indra.test;
 
 import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -15,70 +17,70 @@ public class LoginTest extends ConfigurationSetup {
 	LoginAction loginAction;
 
 	@BeforeTest
-	public void Init() throws Exception {
+	public void init() throws Exception {
 		setup();
 	}
 
 	@BeforeMethod
-	public void Browser() throws Exception {
+	public void browser() throws Exception {
 		launchURL();
 	}
 
 	@Test(priority = 1, enabled=true)
-	public void SignupPages() throws Exception {
+	public void signupPages() throws Exception {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
-		loginAction.SignUpAirasia(readPropertyFile("email"), readPropertyFile("emailPassword"));
+		loginAction.signUpAirasia(readPropertyFile("email"), readPropertyFile("emailPassword"));
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	@Test(priority = 2, enabled=true)
-	public void LoginPages() throws Exception {
+	public void loginPages() throws Exception {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
-		loginAction.LoginAirasia(readPropertyFile("username"), readPropertyFile("password"));
+		loginAction.loginAirasia(readPropertyFile("username"), readPropertyFile("password"));
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	@Test(priority = 3, enabled=true)
-	public void ForgotPassword() throws InterruptedException {
+	public void forgotPassword() throws InterruptedException {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
-		loginAction.ForgotPassword();
+		loginAction.forgotPassword();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	@Test(priority = 4, enabled=true)
-	public void LoginAsFacebook() throws Exception {
+	public void loginAsFacebook() throws Exception {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
-		loginAction.LoginWithFacebook(readPropertyFile("facebookEmail"), readPropertyFile("facebookPass"));
+		loginAction.loginWithFacebook(readPropertyFile("facebookEmail"), readPropertyFile("facebookPass"));
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	@Test(priority = 5, enabled=true)
-	public void LoginAsGoogle() throws Exception {
+	public void loginAsGoogle() throws Exception {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
-		loginAction.LoginWithGoogle(readPropertyFile("googleEmail"));
+		loginAction.loginWithGoogle(readPropertyFile("googleEmail"));
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	@Test(priority = 6, enabled=true)
-	public void LoginAsWeChat() throws InterruptedException {
+	public void loginAsWeChat() throws InterruptedException {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
-		loginAction.LoginWithWeChat();
+		loginAction.loginWithWeChat();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	@AfterMethod
-	public void CloseTabs() {
+	public void closeTabs() {
 		closeAllTabs();
 	}
 
 	@AfterTest
-	public void ExitDriver() {
+	public void quitDriver() {
 		exitDriver();
 	}
 

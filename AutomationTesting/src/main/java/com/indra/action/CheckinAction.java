@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.indra.action.resources.CommonActions;
+import com.indra.constants.CommonActions;
 import com.indra.pages.CheckinPage;
 public class CheckinAction extends CheckinPage {
 	WebDriver driver;
@@ -16,7 +16,7 @@ public class CheckinAction extends CheckinPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void CheckIn() throws InterruptedException {
+	public void checkIn() throws InterruptedException {
 		commonCodes();
 		Thread.sleep(3000);
 		commonAction.inputAction(bookingNumberId, "12345");

@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.indra.action.resources.CommonActions;
+import com.indra.constants.CommonActions;
 import com.indra.pages.FlightStatusPage;
 
 public class FlightStatusAction extends FlightStatusPage{
@@ -18,7 +18,7 @@ public class FlightStatusAction extends FlightStatusPage{
 		PageFactory.initElements(driver, this);
 	}
 
-	public void SearchFlightNumber() throws InterruptedException {
+	public void searchFlightNumber() throws InterruptedException {
 		commonCodes();
 		Thread.sleep(3000);
 		commonAction.inputAction(flightNumber, "AK 6117");
@@ -26,7 +26,7 @@ public class FlightStatusAction extends FlightStatusPage{
 		commonAction.clickAction(flightButton);
 	}
 	
-	public void SearchByRoute() throws InterruptedException {
+	public void searchByRoute() throws InterruptedException {
 		commonCodes();
 		commonAction.clickAction(searchByRouteTab);
 		Thread.sleep(2000);

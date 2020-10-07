@@ -1,4 +1,4 @@
-package com.indra.action.resources;
+package com.indra.constants;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

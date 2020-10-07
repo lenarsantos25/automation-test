@@ -4,7 +4,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.indra.action.resources.CommonActions;
+import com.indra.constants.CommonActions;
 import com.indra.pages.AirAsiaHomePage;
 
 public class AirAsiaHomeAction extends AirAsiaHomePage {
@@ -17,7 +17,7 @@ public class AirAsiaHomeAction extends AirAsiaHomePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void Flights() throws InterruptedException {
+	public void flights() throws InterruptedException {
 		commonAction.clickAction(flightTab);
 		Thread.sleep(3000);
 		commonAction.clickAction(fromRouteField);
@@ -39,7 +39,7 @@ public class AirAsiaHomeAction extends AirAsiaHomePage {
 		commonAction.clickAction(searchFlightBtn);
 	}
 	
-	public void Hotels() throws InterruptedException {
+	public void hotels() throws InterruptedException {
 		commonAction.clickAction(hotelTab);
 		Thread.sleep(3000);
 		commonAction.inputAction(destinationField, "Kuala Lumpur");
@@ -65,7 +65,7 @@ public class AirAsiaHomeAction extends AirAsiaHomePage {
 		commonAction.clickAction(searchButton);
 	}
 	
-	public void Snap() throws InterruptedException {
+	public void snap() throws InterruptedException {
 		commonAction.clickAction(flightTab);
 		Thread.sleep(3000);
 		commonAction.clickAction(fromRouteField);
@@ -87,7 +87,7 @@ public class AirAsiaHomeAction extends AirAsiaHomePage {
 		commonAction.clickAction(searchFlightBtn);
 	}
 	
-	public void Shop() {
+	public void shop() {
 		commonAction.clickAction(shopTab);
 		for(String childTab: driver.getWindowHandles()) {
 			driver.switchTo().window(childTab);
@@ -96,17 +96,17 @@ public class AirAsiaHomeAction extends AirAsiaHomePage {
 		shopInputId.sendKeys(Keys.ENTER);
 	}
 	
-	public void Activites() {
+	public void activites() {
 		commonAction.clickAction(activitiesTab);
 		commonAction.inputAction(activityField, "test activities");
 		commonAction.clickAction(searchActivityButton);
 	}
 	
-	public void Insurance() {
+	public void insurance() {
 		commonAction.clickAction(insuranceTab);
 	}
 	
-	public void Deals() {
+	public void deals() {
 		
 	}
 	

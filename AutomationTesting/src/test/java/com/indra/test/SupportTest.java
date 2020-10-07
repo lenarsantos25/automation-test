@@ -15,32 +15,31 @@ public class SupportTest extends ConfigurationSetup {
 	SupportAction supportAction;
 
 	@BeforeTest
-	public void Init() throws Exception {
+	public void init() throws Exception {
 		setup();
 	}
 
 	@BeforeMethod
-	public void Browser() throws Exception {
+	public void browser() throws Exception {
 		launchURL();
 	}
 	
 	@Test(priority=1)
-	public void SupportPages() throws InterruptedException {
+	public void supportPages() throws InterruptedException {
 		supportAction = new SupportAction(driver);
 		PageFactory.initElements(driver, SupportTest.this);
-		supportAction.Support();
+		supportAction.support();
 	}
 	
 	
 
 	@AfterMethod
-	public void CloseTabs() {
-		driver.close();
-		driver.quit();
+	public void closeTabs() {
+		closeAllTabs();
 	}
 
 	@AfterTest
-	public void ExitDriver() {
-		driver.quit();
+	public void quitDriver() {
+		exitDriver();
 	}
 }

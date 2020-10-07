@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.indra.action.resources.CommonActions;
+import com.indra.constants.CommonActions;
 import com.indra.pages.SupportPage;
 
 public class SupportAction extends SupportPage {
@@ -18,12 +18,13 @@ public class SupportAction extends SupportPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void Support() throws InterruptedException {
+	public void support() throws InterruptedException {
 		commonCodes();
 		Thread.sleep(3000);
 		commonAction.inputAction(searchBox, "Airport Tax");
 		Thread.sleep(2000);
 		commonAction.clickAction(searchButton);
+		Thread.sleep(5000);
 	}
 	private void commonCodes() {
 		commonAction.clickAction(supportLinkText);

@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class MyBookingsPage {
 
-	@FindBy(xpath="(//div[contains(@class, 'navMenu-wrapper')]/ul/li/a)[1]")
+	@FindBy(xpath="(//div[contains(@class, 'navMenu-wrapper')]/ul/li/a)[2]")
 	public WebElement myBookingsTab;
 	
 	@FindBy(id="input-lastName")

@@ -5,7 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.indra.action.resources.CommonActions;
+import com.indra.constants.CommonActions;
 import com.indra.pages.MyBookingsPage;
 
 public class MyBookingsAction extends MyBookingsPage {
@@ -18,7 +18,7 @@ public class MyBookingsAction extends MyBookingsPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void FlightTab() throws InterruptedException {
+	public void flightTab() throws InterruptedException {
 		commonCodes();
 		commonAction.clickAction(departureCity);
 		Thread.sleep(3000);
@@ -31,7 +31,7 @@ public class MyBookingsAction extends MyBookingsPage {
 		commonAction.clickAction(submitBtn);
 	}
 	
-	public void HotelTab() throws InterruptedException {
+	public void hotelTab() throws InterruptedException {
 		commonCodes();
 		commonAction.clickAction(hotelTab);
 		Thread.sleep(3000);
@@ -44,7 +44,7 @@ public class MyBookingsAction extends MyBookingsPage {
 		commonAction.clickAction(submitBtn);
 	}
 	
-	public void RetrieveBooking() throws InterruptedException {
+	public void retrieveBooking() throws InterruptedException {
 		commonCodes();
 		commonAction.clickAction(retrieveLinkText);
 		Thread.sleep(3000);

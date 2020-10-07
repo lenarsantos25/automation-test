@@ -3,7 +3,7 @@ package com.indra.action;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import com.indra.action.resources.CommonActions;
+import com.indra.constants.CommonActions;
 import com.indra.pages.TravelNoticesAndPromotionsPage;
 
 public class TravelNoticesAndPromotionsAction extends TravelNoticesAndPromotionsPage {
@@ -14,7 +14,7 @@ public class TravelNoticesAndPromotionsAction extends TravelNoticesAndPromotions
 		PageFactory.initElements(driver, this);
 	}
 
-	public void FirstPromotion() throws InterruptedException {
+	public void firstPromotion() throws InterruptedException {
 		String parent = driver.getWindowHandle();
 		commonAction.clickAction(firstCard);
 		Thread.sleep(3000);

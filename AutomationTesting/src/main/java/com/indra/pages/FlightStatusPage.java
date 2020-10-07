@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class FlightStatusPage {
 
-	@FindBy(xpath="(//div[contains(@class, 'navMenu-wrapper')]/ul/li/a)[3]")
+	@FindBy(xpath="(//div[contains(@class, 'navMenu-wrapper')]/ul/li/a)[4]")
 	public WebElement flightStatusTab;
 	
 	// Search by Flight Number

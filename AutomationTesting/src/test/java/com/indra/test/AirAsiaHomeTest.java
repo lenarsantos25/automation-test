@@ -13,64 +13,64 @@ public class AirAsiaHomeTest extends ConfigurationSetup{
 	AirAsiaHomeAction airasiaHomeAction;
 
 	@BeforeTest
-	public void Init() throws Exception {
+	public void init() throws Exception {
 		setup();
 	}
 
 	@BeforeMethod
-	public void Browser() throws Exception {
+	public void browser() throws Exception {
 		launchURL();
 	}
 	
-	@Test(priority=1)
-	public void FlightsTab() throws InterruptedException {
+	@Test(priority=1, enabled=true)
+	public void flightsTab() throws InterruptedException {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
-		airasiaHomeAction.Flights();
+		airasiaHomeAction.flights();
 	}
 	
-	@Test(priority=2)
-	public void HotelsTab() throws InterruptedException {
+	@Test(priority=2, enabled=true)
+	public void hotelsTab() throws InterruptedException {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
-		airasiaHomeAction.Hotels();
+		airasiaHomeAction.hotels();
 	}
 	
-	@Test(priority=3)
-	public void SnapTab() throws InterruptedException {
+	@Test(priority=3, enabled=true)
+	public void snapTab() throws InterruptedException {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
-		airasiaHomeAction.Snap();
+		airasiaHomeAction.snap();
 	}
 	
-	@Test(priority=4)
-	public void ShopTab() {
+	@Test(priority=4, enabled=false)
+	public void shopTab() {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
-		airasiaHomeAction.Shop();
+		airasiaHomeAction.shop();
 	}
 
-	@Test(priority=5)
-	public void ActivitesTab() {
+	@Test(priority=5, enabled=true)
+	public void activitesTab() {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
-		airasiaHomeAction.Activites();
+		airasiaHomeAction.activites();
 	}
 	
-	@Test(priority=6)
-	public void InsuranceTab() {
+	@Test(priority=6, enabled=true)
+	public void insuranceTab() {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
-		airasiaHomeAction.Insurance();
+		airasiaHomeAction.insurance();
 	}
 	
 	@AfterMethod
-	public void CloseTabs() {
+	public void closeTabs() {
 		closeAllTabs();
 	}
 
 	@AfterTest
-	public void ExitDriver() {
+	public void quitDriver() {
 		exitDriver();
 	}
 }

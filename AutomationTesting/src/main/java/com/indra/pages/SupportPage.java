@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class SupportPage {
 	
-	@FindBy(xpath="(//div[contains(@class, 'navMenu-wrapper')]/ul/li/a)[4]")
+	@FindBy(xpath="(//div[contains(@class, 'navMenu-wrapper')]/ul/li/a)[5]")
 	public WebElement supportLinkText;
 	
 	@FindBy(xpath="//input[contains(@role, 'combobox')]")

@@ -14,30 +14,30 @@ public class TravelNoticesAndPromotionsTest extends ConfigurationSetup{
 	TravelNoticesAndPromotionsAction tnpAction;
 
 	@BeforeTest
-	public void Init() throws Exception {
+	public void init() throws Exception {
 		setup();
 	}
 
 	@BeforeMethod
-	public void Browser() throws Exception {
+	public void browser() throws Exception {
 		launchURL();
 	}
 
 	@Test(priority=1)
-	public void FirstPromotionPage() throws InterruptedException {
+	public void firstPromotionPage() throws InterruptedException {
 		tnpAction = new TravelNoticesAndPromotionsAction(driver);
 		PageFactory.initElements(driver, TravelNoticesAndPromotionsTest.this);
-		tnpAction.FirstPromotion();
+		tnpAction.firstPromotion();
 	}
 	
 
 	@AfterMethod
-	public void CloseTabs() {
+	public void closeTabs() {
 		closeAllTabs();
 	}
 
 	@AfterTest
-	public void ExitDriver() {
+	public void quitDriver() {
 		exitDriver();
 	}
 }

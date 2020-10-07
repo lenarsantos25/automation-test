@@ -16,46 +16,46 @@ public class MyBookingsTest extends ConfigurationSetup{
 	MyBookingsAction mybookingsAction;
 
 	@BeforeTest
-	public void Init() throws Exception {
+	public void init() throws Exception {
 		setup();
 	}
 
 	@BeforeMethod
-	public void Browser() throws Exception {
+	public void browser() throws Exception {
 		launchURL();
 	}
 	
 	@Test (priority=1)
-	public void  FlightTabPage() throws InterruptedException {
+	public void  flightTabPage() throws InterruptedException {
 		mybookingsAction = new MyBookingsAction(driver);
 		PageFactory.initElements(driver, MyBookingsTest.class);
-		mybookingsAction.FlightTab();
+		mybookingsAction.flightTab();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
 	@Test (priority=2)
-	public void HotelTabPage() throws InterruptedException {
+	public void hotelTabPage() throws InterruptedException {
 		mybookingsAction = new MyBookingsAction(driver);
 		PageFactory.initElements(driver, MyBookingsTest.class);
-		mybookingsAction.HotelTab();
+		mybookingsAction.hotelTab();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
 	@Test (priority=3)
-	public void RetrievePage() throws InterruptedException {
+	public void retrievePage() throws InterruptedException {
 		mybookingsAction = new MyBookingsAction(driver);
 		PageFactory.initElements(driver, MyBookingsTest.class);
-		mybookingsAction.RetrieveBooking();
+		mybookingsAction.retrieveBooking();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 	
 	@AfterMethod
-	public void CloseTabs() {
+	public void closeTabs() {
 		closeAllTabs();
 	}
 
 	@AfterTest
-	public void ExitDriver() {
+	public void quitDriver() {
 		exitDriver();
 	}
 }

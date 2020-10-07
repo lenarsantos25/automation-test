@@ -23,17 +23,17 @@ public class FlightStatusTest extends ConfigurationSetup {
 	}
 
 	@Test(priority = 1)
-	public void SearchByFlightNumber() throws InterruptedException {
+	public void searchByFlightNumber() throws InterruptedException {
 		flightStatusAction = new FlightStatusAction(driver);
 		PageFactory.initElements(driver, FlightStatusTest.class);
-		flightStatusAction.SearchFlightNumber();
+		flightStatusAction.searchFlightNumber();
 	}
 
 	@Test(priority = 2)
-	public void SearchByDestination() throws InterruptedException {
+	public void searchByDestination() throws InterruptedException {
 		flightStatusAction = new FlightStatusAction(driver);
 		PageFactory.initElements(driver, FlightStatusTest.class);
-		flightStatusAction.SearchByRoute();
+		flightStatusAction.searchByRoute();
 	}
 
 	@AfterMethod
