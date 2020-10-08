@@ -1,4 +1,4 @@
-package com.indra.test;
+package com.indra.test.util;
 
 import java.io.FileInputStream;
 import java.util.HashMap;

@@ -14,12 +14,12 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.indra.test.AirAsiaHomeTest;
 import com.indra.test.CheckinTest;
-import com.indra.test.ConfigurationSetup;
 import com.indra.test.FlightStatusTest;
 import com.indra.test.LoginTest;
 import com.indra.test.MyBookingsTest;
 import com.indra.test.SupportTest;
 import com.indra.test.TravelNoticesAndPromotionsTest;
+import com.indra.test.util.ConfigurationSetup;
 
 public class AirAsiaReportTest extends ConfigurationSetup {
 
@@ -33,10 +33,10 @@ public class AirAsiaReportTest extends ConfigurationSetup {
 
 	ExtentReports extent;
 	ExtentTest exTest;
-	ThreadLocal test = new ThreadLocal();
+	ThreadLocal<ExtentTest> test = new ThreadLocal<ExtentTest>();
 
 	@BeforeTest
-	public void beforeSuite() {
+	public void setupAutomationReport() {
 		extent = ExtentManager.createInstance("AirAsiaAutomationReport.html");
 		loginTest = new LoginTest();
 		myBookingsTest = new MyBookingsTest();
@@ -48,9 +48,21 @@ public class AirAsiaReportTest extends ConfigurationSetup {
 	}
 
 	@BeforeMethod
-	public synchronized void beforeMethod(Method method, ITestResult result) throws Exception {
+	public synchronized void getResultOnStart(Method method, ITestResult result) throws Exception {
 		exTest = extent.createTest(method.getName());
 		test.set(exTest);
+		
+		if (result.getStatus() == ITestResult.FAILURE) {
+			exTest.log(Status.INFO, result.getThrowable());
+		}
+
+		else if (result.getStatus() == ITestResult.SKIP) {
+			exTest.log(Status.INFO, result.getThrowable());
+		}
+
+		else {
+			exTest.log(Status.INFO, "In onTestStart method: " + result.getMethod().getMethodName());
+		}
 
 		setup();
 		launchURL();
@@ -58,101 +70,101 @@ public class AirAsiaReportTest extends ConfigurationSetup {
 
 	@Test(priority = 1, enabled = true)
 	public void airAsiaSignupPage() throws Exception {
-		loginTest.signupPages();
+		loginTest.signupPages(driver);
 	}
 
 	@Test(priority = 2, enabled = true)
 	public void airAsiaLoginPage() throws Exception {
-		loginTest.loginPages();
+		loginTest.loginPages(driver);
 	}
 
 	@Test(priority = 3, enabled = true)
 	public void airAsiaForgotPasswordPage() throws Exception {
-		loginTest.forgotPassword();
+		loginTest.forgotPassword(driver);
 	}
 
 	@Test(priority = 4, enabled = true)
 	public void airAsiaFacebookLoginPage() throws Exception {
-		loginTest.loginAsFacebook();
+		loginTest.loginAsFacebook(driver);
 	}
 
 	@Test(priority = 5, enabled = true)
 	public void airAsiaGoogleLoginPage() throws Exception {
-		loginTest.loginAsGoogle();
+		loginTest.loginAsGoogle(driver);
 	}
 
 	@Test(priority = 6, enabled = true)
 	public void airAsiaWeChatLoginPage() throws Exception {
-		loginTest.loginAsWeChat();
+		loginTest.loginAsWeChat(driver);
 	}
 
 	@Test(priority = 7, enabled = true)
 	public void myBookingsFlightTab() throws Exception {
-		myBookingsTest.flightTabPage();
+		myBookingsTest.flightTabPage(driver);
 	}
 
 	@Test(priority = 8, enabled = true)
 	public void myBookingsHotelTab() throws Exception {
-		myBookingsTest.hotelTabPage();
+		myBookingsTest.hotelTabPage(driver);
 	}
 
 	@Test(priority = 9, enabled = true)
 	public void myBookingsRetrievePage() throws Exception {
-		myBookingsTest.retrievePage();
+		myBookingsTest.retrievePage(driver);
 	}
 
 	@Test(priority = 10, enabled = true)
 	public void checkinPage() throws Exception {
-		checkinTest.CheckinPages();
+		checkinTest.CheckinPages(driver);
 	}
 
 	@Test(priority = 11, enabled = true)
 	public void flightStatusSearchByFlightNumber() throws Exception {
-		flightStatusTest.searchByFlightNumber();
+		flightStatusTest.searchByFlightNumber(driver);
 	}
 
 	@Test(priority = 12, enabled = true)
 	public void flightStatusSearchByDestination() throws Exception {
-		flightStatusTest.searchByDestination();
+		flightStatusTest.searchByDestination(driver);
 	}
 
 	@Test(priority = 13, enabled = true)
 	public void supportPage() throws Exception {
-		supportTest.supportPages();
+		supportTest.supportPages(driver);
 	}
 	
 	@Test(priority = 14, enabled = true)
 	public void airAsiaHomeFlightsTab() throws Exception {
-		airAsiaHomeTest.flightsTab();
+		airAsiaHomeTest.flightsTab(driver);
 	}
 	
 	@Test(priority = 15, enabled = true)
 	public void airAsiaHomeHotelTab() throws Exception {
-		airAsiaHomeTest.hotelsTab();
+		airAsiaHomeTest.hotelsTab(driver);
 	}
 	
 	@Test(priority = 16, enabled = false)
 	public void airAsiaHomeShopTab() throws Exception {
-		airAsiaHomeTest.shopTab();
+		airAsiaHomeTest.shopTab(driver);
 	}
 	
 	@Test(priority = 17, enabled = true)
 	public void airAsiaSnapTab() throws Exception {
-		airAsiaHomeTest.snapTab();
+		airAsiaHomeTest.snapTab(driver);
 	}
 	
 	@Test(priority = 18, enabled = true)
 	public void airAsiaActivities() throws Exception {
-		airAsiaHomeTest.activitesTab();
+		airAsiaHomeTest.activitesTab(driver);
 	}
 	
 	@Test(priority = 19, enabled = true)
 	public void airAsiaInsurance() throws Exception {
-		airAsiaHomeTest.insuranceTab();
+		airAsiaHomeTest.insuranceTab(driver);
 	}
 
 	@AfterMethod
-	public synchronized void afterMethod(ITestResult result) throws Exception {
+	public synchronized void getResultOnFinish(ITestResult result) throws Exception {
 		if (result.getStatus() == ITestResult.FAILURE) {
 			exTest.log(Status.INFO, result.getThrowable());
 		}
@@ -172,7 +184,7 @@ public class AirAsiaReportTest extends ConfigurationSetup {
 	}
 
 	@AfterTest
-	public void afterSuite() {
+	public void flushAutomationReport() {
 		extent.flush();
 	}
 }

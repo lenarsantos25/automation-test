@@ -1,5 +1,6 @@
 package com.indra.test;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -8,6 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.indra.action.AirAsiaHomeAction;
+import com.indra.test.util.ConfigurationSetup;
 
 public class AirAsiaHomeTest extends ConfigurationSetup{
 	AirAsiaHomeAction airasiaHomeAction;
@@ -23,45 +25,51 @@ public class AirAsiaHomeTest extends ConfigurationSetup{
 	}
 	
 	@Test(priority=1, enabled=true)
-	public void flightsTab() throws InterruptedException {
+	public WebDriver flightsTab(WebDriver driver) throws InterruptedException {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
 		airasiaHomeAction.flights();
+		return driver;
 	}
 	
 	@Test(priority=2, enabled=true)
-	public void hotelsTab() throws InterruptedException {
+	public WebDriver hotelsTab(WebDriver driver) throws InterruptedException {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
 		airasiaHomeAction.hotels();
+		return driver;
 	}
 	
 	@Test(priority=3, enabled=true)
-	public void snapTab() throws InterruptedException {
+	public WebDriver snapTab(WebDriver driver) throws InterruptedException {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
 		airasiaHomeAction.snap();
+		return driver;
 	}
 	
 	@Test(priority=4, enabled=false)
-	public void shopTab() {
+	public WebDriver shopTab(WebDriver driver) {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
 		airasiaHomeAction.shop();
+		return driver;
 	}
 
 	@Test(priority=5, enabled=true)
-	public void activitesTab() {
+	public WebDriver activitesTab(WebDriver driver) {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
 		airasiaHomeAction.activites();
+		return driver;
 	}
 	
 	@Test(priority=6, enabled=true)
-	public void insuranceTab() {
+	public WebDriver insuranceTab(WebDriver driver) {
 		airasiaHomeAction = new AirAsiaHomeAction(driver);
 		PageFactory.initElements(driver, AirAsiaHomeTest.class);
 		airasiaHomeAction.insurance();
+		return driver;
 	}
 	
 	@AfterMethod

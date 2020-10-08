@@ -1,5 +1,6 @@
 package com.indra.test;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -8,6 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.indra.action.TravelNoticesAndPromotionsAction;
+import com.indra.test.util.ConfigurationSetup;
 
 
 public class TravelNoticesAndPromotionsTest extends ConfigurationSetup{
@@ -24,10 +26,11 @@ public class TravelNoticesAndPromotionsTest extends ConfigurationSetup{
 	}
 
 	@Test(priority=1)
-	public void firstPromotionPage() throws InterruptedException {
+	public WebDriver firstPromotionPage(WebDriver driver) throws InterruptedException {
 		tnpAction = new TravelNoticesAndPromotionsAction(driver);
 		PageFactory.initElements(driver, TravelNoticesAndPromotionsTest.this);
 		tnpAction.firstPromotion();
+		return driver;
 	}
 	
 

@@ -1,6 +1,7 @@
 package com.indra.test;
 
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -9,6 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.indra.action.SupportAction;
+import com.indra.test.util.ConfigurationSetup;
 
 
 public class SupportTest extends ConfigurationSetup {
@@ -25,10 +27,11 @@ public class SupportTest extends ConfigurationSetup {
 	}
 	
 	@Test(priority=1)
-	public void supportPages() throws InterruptedException {
+	public WebDriver supportPages(WebDriver driver) throws InterruptedException {
 		supportAction = new SupportAction(driver);
 		PageFactory.initElements(driver, SupportTest.this);
 		supportAction.support();
+		return driver;
 	}
 	
 	

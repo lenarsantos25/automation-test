@@ -1,5 +1,6 @@
 package com.indra.test;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
@@ -8,6 +9,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.indra.action.FlightStatusAction;
+import com.indra.test.util.ConfigurationSetup;
 
 public class FlightStatusTest extends ConfigurationSetup {
 	FlightStatusAction flightStatusAction;
@@ -23,17 +25,19 @@ public class FlightStatusTest extends ConfigurationSetup {
 	}
 
 	@Test(priority = 1)
-	public void searchByFlightNumber() throws InterruptedException {
+	public WebDriver searchByFlightNumber(WebDriver driver) throws InterruptedException {
 		flightStatusAction = new FlightStatusAction(driver);
 		PageFactory.initElements(driver, FlightStatusTest.class);
 		flightStatusAction.searchFlightNumber();
+		return driver;
 	}
 
 	@Test(priority = 2)
-	public void searchByDestination() throws InterruptedException {
+	public WebDriver searchByDestination(WebDriver driver) throws InterruptedException {
 		flightStatusAction = new FlightStatusAction(driver);
 		PageFactory.initElements(driver, FlightStatusTest.class);
 		flightStatusAction.searchByRoute();
+		return driver;
 	}
 
 	@AfterMethod
