@@ -11,28 +11,25 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ConfigurationSetup {
-	public WebDriver driver;
+	public ChromeDriver driver;
 	ChromeOptions options;
 	FileInputStream fileStream;
 	Properties prop;
 	
-	public void setup() throws Exception {
-		fileStream = new FileInputStream("C:\\Users\\santo\\git\\repository\\AutomationTest\\src\\test\\resources\\config.properties");
-		prop = new Properties();
-		prop.load(fileStream);
-		
+	public void setup() throws Exception {	
 		System.setProperty(readPropertyFile("chrome"), readPropertyFile("path"));
 		Map<String, Object> prefs = new HashMap<String, Object>();
-		prefs.put("profile.default_content_setting_values.notifications", 2);
+		prefs.put(readPropertyFile("profilePrefs"), 2);
 		options = new ChromeOptions();
 		options.setExperimentalOption("prefs", prefs);
 	}
 	
 	public void launchURL() throws Exception {
 		driver = new ChromeDriver(options);
-		driver.manage().window().maximize();
+		driver.manage().window().fullscreen();
 		driver.get(readPropertyFile("baseURL"));
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		
 	}
 	
 	public void closeAllTabs() {
