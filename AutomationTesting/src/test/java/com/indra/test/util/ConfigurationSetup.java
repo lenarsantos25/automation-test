@@ -4,9 +4,7 @@ import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -26,10 +24,8 @@ public class ConfigurationSetup {
 	
 	public void launchURL() throws Exception {
 		driver = new ChromeDriver(options);
-		driver.manage().window().fullscreen();
-		driver.get(readPropertyFile("baseURL"));
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		
+		driver.manage().window().maximize();
+		driver.get(readPropertyFile("baseURL"));	
 	}
 	
 	public void closeAllTabs() {
