@@ -5,19 +5,20 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver.Options;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ConfigurationSetup {
-	public ChromeDriver driver;
+	public WebDriver driver;
 	ChromeOptions options;
 	FileInputStream fileStream;
 	Properties prop;
-	
 	public void setup() throws Exception {	
 		System.setProperty(readPropertyFile("chrome"), readPropertyFile("path"));
-		Map<String, Object> prefs = new HashMap<String, Object>();
-		prefs.put(readPropertyFile("profilePrefs"), 2);
+		Map prefs = new HashMap();
+		prefs.put("profile.default_content_settings.cookies", 2);
 		options = new ChromeOptions();
 		options.setExperimentalOption("prefs", prefs);
 	}

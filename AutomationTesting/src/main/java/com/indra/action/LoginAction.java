@@ -44,7 +44,7 @@ public class LoginAction extends LoginPage {
 		Thread.sleep(2000);
 	}
 
-	public void forgotPassword() throws InterruptedException {
+	public void forgotPassword(String email) throws InterruptedException {
 		commonAction.waitUntilTheElementIsVisible(driver, buttonTop, 10);
 		if (!buttonTop.isDisplayed()) {
 			loginSignUpButton.click();
@@ -55,9 +55,7 @@ public class LoginAction extends LoginPage {
 
 		commonAction.clickAction(forgotPass);
 		Thread.sleep(3000);
-		commonAction.waitUntilTheElementIsVisible(driver, forgotEmail, 5);
-		Thread.sleep(3000);
-		commonAction.inputAction(forgotEmail, "test@gmail.com");
+		commonAction.inputAction(forgotEmail, email);
 		Thread.sleep(2000);
 		commonAction.clickAction(loginButton);
 		Thread.sleep(2000);

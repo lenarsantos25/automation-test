@@ -20,6 +20,7 @@ import com.indra.test.MyBookingsTest;
 import com.indra.test.SupportTest;
 import com.indra.test.TravelNoticesAndPromotionsTest;
 import com.indra.test.util.ConfigurationSetup;
+import com.indra.test.util.DataProviderClass;
 
 public class AirAsiaReportTest extends ConfigurationSetup {
 
@@ -68,100 +69,100 @@ public class AirAsiaReportTest extends ConfigurationSetup {
 		launchURL();
 	}
 
-	@Test(priority = 1, enabled = true)
-	public void airAsiaSignupPage() throws Exception {
-		loginTest.signupPages(driver);
-	}
+//	@Test(priority = 1, enabled = false)
+//	public void airAsiaSignupPage() throws Exception {
+//		loginTest.signupPages(driver);
+//	}
+//
+//	@Test(priority = 2, enabled = false)
+//	public void airAsiaLoginPage() throws Exception {
+//		loginTest.loginPages(driver);
+//	}
+//
+//	@Test(priority = 3, enabled = false)
+//	public void airAsiaForgotPasswordPage() throws Exception {
+//		loginTest.forgotPassword(driver);
+//	}
+//
+//	@Test(priority = 4, enabled = false)
+//	public void airAsiaFacebookLoginPage() throws Exception {
+//		loginTest.loginAsFacebook(driver);
+//	}
+//
+//	@Test(priority = 5, enabled = false)
+//	public void airAsiaGoogleLoginPage() throws Exception {
+//		loginTest.loginAsGoogle(driver);
+//	}
+//
+//	@Test(priority = 6, enabled = false)
+//	public void airAsiaWeChatLoginPage() throws Exception {
+//		loginTest.loginAsWeChat(driver);
+//	}
+//
+//	@Test(priority = 7, enabled = false)
+//	public void myBookingsFlightTab() throws Exception {
+//		myBookingsTest.flightTabPage(driver);
+//	}
+//
+//	@Test(priority = 8, enabled = false)
+//	public void myBookingsHotelTab() throws Exception {
+//		myBookingsTest.hotelTabPage(driver);
+//	}
+//
+//	@Test(priority = 9, enabled = false)
+//	public void myBookingsRetrievePage() throws Exception {
+//		myBookingsTest.retrievePage(driver);
+//	}
+//
+//	@Test(priority = 10, enabled = false)
+//	public void checkinPage() throws Exception {
+//		checkinTest.CheckinPages(driver);
+//	}
+//
+//	@Test(priority = 11, enabled = false)
+//	public void flightStatusSearchByFlightNumber() throws Exception {
+//		flightStatusTest.searchByFlightNumber(driver);
+//	}
 
-	@Test(priority = 2, enabled = true)
-	public void airAsiaLoginPage() throws Exception {
-		loginTest.loginPages(driver);
-	}
+//	@Test(priority = 12, enabled = false)
+//	public void flightStatusSearchByDestination() throws Exception {
+//		flightStatusTest.searchByDestination(driver);
+//	}
 
-	@Test(priority = 3, enabled = true)
-	public void airAsiaForgotPasswordPage() throws Exception {
-		loginTest.forgotPassword(driver);
-	}
-
-	@Test(priority = 4, enabled = true)
-	public void airAsiaFacebookLoginPage() throws Exception {
-		loginTest.loginAsFacebook(driver);
-	}
-
-	@Test(priority = 5, enabled = true)
-	public void airAsiaGoogleLoginPage() throws Exception {
-		loginTest.loginAsGoogle(driver);
-	}
-
-	@Test(priority = 6, enabled = true)
-	public void airAsiaWeChatLoginPage() throws Exception {
-		loginTest.loginAsWeChat(driver);
-	}
-
-	@Test(priority = 7, enabled = true)
-	public void myBookingsFlightTab() throws Exception {
-		myBookingsTest.flightTabPage(driver);
-	}
-
-	@Test(priority = 8, enabled = true)
-	public void myBookingsHotelTab() throws Exception {
-		myBookingsTest.hotelTabPage(driver);
-	}
-
-	@Test(priority = 9, enabled = true)
-	public void myBookingsRetrievePage() throws Exception {
-		myBookingsTest.retrievePage(driver);
-	}
-
-	@Test(priority = 10, enabled = true)
-	public void checkinPage() throws Exception {
-		checkinTest.CheckinPages(driver);
-	}
-
-	@Test(priority = 11, enabled = true)
-	public void flightStatusSearchByFlightNumber() throws Exception {
-		flightStatusTest.searchByFlightNumber(driver);
-	}
-
-	@Test(priority = 12, enabled = true)
-	public void flightStatusSearchByDestination() throws Exception {
-		flightStatusTest.searchByDestination(driver);
-	}
-
-	@Test(priority = 13, enabled = true)
-	public void supportPage() throws Exception {
-		supportTest.supportPages(driver);
-	}
-	
-	@Test(priority = 14, enabled = true)
-	public void airAsiaHomeFlightsTab() throws Exception {
-		airAsiaHomeTest.flightsTab(driver);
-	}
-	
-	@Test(priority = 15, enabled = true)
-	public void airAsiaHomeHotelTab() throws Exception {
-		airAsiaHomeTest.hotelsTab(driver);
-	}
-	
-	@Test(priority = 16, enabled = false)
-	public void airAsiaHomeShopTab() throws Exception {
-		airAsiaHomeTest.shopTab(driver);
-	}
-	
-	@Test(priority = 17, enabled = true)
-	public void airAsiaSnapTab() throws Exception {
-		airAsiaHomeTest.snapTab(driver);
-	}
-	
-	@Test(priority = 18, enabled = true)
-	public void airAsiaActivities() throws Exception {
-		airAsiaHomeTest.activitesTab(driver);
-	}
-	
-	@Test(priority = 19, enabled = true)
-	public void airAsiaInsurance() throws Exception {
-		airAsiaHomeTest.insuranceTab(driver);
-	}
+//	@Test(priority = 13, enabled = false)
+//	public void supportPage() throws Exception {
+//		supportTest.supportPages(driver);
+//	}
+//	
+//	@Test(priority = 14, enabled = false)
+//	public void airAsiaHomeFlightsTab() throws Exception {
+//		airAsiaHomeTest.flightsTab(driver);
+//	}
+//	
+//	@Test(priority = 15, enabled = false)
+//	public void airAsiaHomeHotelTab() throws Exception {
+//		airAsiaHomeTest.hotelsTab(driver);
+//	}
+//	
+//	@Test(priority = 16, enabled = false)
+//	public void airAsiaHomeShopTab() throws Exception {
+//		airAsiaHomeTest.shopTab(driver);
+//	}
+//	
+//	@Test(priority = 17, enabled = false)
+//	public void airAsiaSnapTab() throws Exception {
+//		airAsiaHomeTest.snapTab(driver);
+//	}
+//	
+//	@Test(priority = 18, enabled = false)
+//	public void airAsiaActivities() throws Exception {
+//		airAsiaHomeTest.activitesTab(driver);
+//	}
+//	
+//	@Test(priority = 19, enabled = false)
+//	public void airAsiaInsurance() throws Exception {
+//		airAsiaHomeTest.insuranceTab(driver);
+//	}
 
 	@AfterMethod
 	public synchronized void getResultOnFinish(ITestResult result) throws Exception {

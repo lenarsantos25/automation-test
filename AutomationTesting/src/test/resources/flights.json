@@ -1,0 +1,25 @@
+{
+  "flights": [
+    {
+		"origin": "Manila (MNL)",
+		"destination": "Bacolod (BCD)"
+    },
+    {
+	    "origin": "Singapore (SIN)",
+		"destination": "Bandung (BDO)"
+    },
+    {
+	    "origin": "Agartala (IXA)",
+		"destination": "Manila (MNL)"
+    },
+    {
+	    "origin": "Kuala Lumpur (KUL)",
+		"destination": "Alor Setar (AOR)"
+    },
+    {
+	    "origin": "Davao (DVO)",
+		"destination": "Cebu (CEB)"
+    }
+    
+  ]
+}

@@ -10,9 +10,11 @@ import org.testng.annotations.Test;
 
 import com.indra.action.FlightStatusAction;
 import com.indra.test.util.ConfigurationSetup;
+import com.indra.test.util.DataProviderClass;
 
 public class FlightStatusTest extends ConfigurationSetup {
 	FlightStatusAction flightStatusAction;
+	DataProviderClass flights = new DataProviderClass();
 
 	@BeforeTest
 	public void Init() throws Exception {
@@ -25,19 +27,18 @@ public class FlightStatusTest extends ConfigurationSetup {
 	}
 
 	@Test(priority = 1)
-	public WebDriver searchByFlightNumber(WebDriver driver) throws InterruptedException {
+	public void searchByFlightNumber() throws InterruptedException {
 		flightStatusAction = new FlightStatusAction(driver);
 		PageFactory.initElements(driver, FlightStatusTest.class);
 		flightStatusAction.searchFlightNumber();
-		return driver;
 	}
 
-	@Test(priority = 2)
-	public WebDriver searchByDestination(WebDriver driver) throws InterruptedException {
+	@Test(priority = 2, dataProvider = "getFlights", dataProviderClass = DataProviderClass.class)
+	public void searchByDestination(DataProviderClass data) throws InterruptedException {
 		flightStatusAction = new FlightStatusAction(driver);
 		PageFactory.initElements(driver, FlightStatusTest.class);
-		flightStatusAction.searchByRoute();
-		return driver;
+		flightStatusAction.searchByRoute(data.getOrigin(), data.getDestination());
+//		return driver;
 	}
 
 	@AfterMethod

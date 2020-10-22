@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import com.indra.action.LoginAction;
 import com.indra.test.util.ConfigurationSetup;
-
+import com.indra.test.util.DataProviderClass;
 
 public class LoginTest extends ConfigurationSetup {
 	LoginAction loginAction;
@@ -27,58 +27,52 @@ public class LoginTest extends ConfigurationSetup {
 		launchURL();
 	}
 
-	@Test(priority = 1, enabled=true)
-	public WebDriver signupPages(WebDriver driver) throws Exception {
+	@Test(priority = 1, enabled = true, dataProvider = "getUsers", dataProviderClass = DataProviderClass.class)
+	public void signupPages(DataProviderClass data) throws Exception {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
-		loginAction.signUpAirasia(readPropertyFile("email"), readPropertyFile("emailPassword"));
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		return driver;
+		loginAction.signUpAirasia(data.getEmail(), data.getEmailPass());
 	}
 
-	@Test(priority = 2, enabled=true)
-	public WebDriver loginPages(WebDriver driver) throws Exception {
+	@Test(priority = 2, enabled = true, dataProvider = "getUsers", dataProviderClass = DataProviderClass.class)
+	public void loginPages(DataProviderClass data) throws Exception {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
-		loginAction.loginAirasia(readPropertyFile("username"), readPropertyFile("password"));
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		return driver;
+		loginAction.loginAirasia(data.getEmail(), data.getEmailPass());
+
 	}
 
-	@Test(priority = 3, enabled=true)
-	public WebDriver forgotPassword(WebDriver driver) throws Exception {
+	@Test(priority = 3, enabled = true, dataProvider = "getUsers", dataProviderClass = DataProviderClass.class)
+	public void forgotPassword(DataProviderClass data) throws Exception {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
-		loginAction.forgotPassword();
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		return driver;
+		loginAction.forgotPassword(data.getEmail());
 	}
 
-	@Test(priority = 4, enabled=true)
-	public WebDriver loginAsFacebook(WebDriver driver) throws Exception {
+	@Test(priority = 4, enabled = true)
+	public void loginAsFacebook(WebDriver driver) throws Exception {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
 		loginAction.loginWithFacebook(readPropertyFile("facebookEmail"), readPropertyFile("facebookPass"));
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		return driver;
+
 	}
 
-	@Test(priority = 5, enabled=true)
-	public WebDriver loginAsGoogle(WebDriver driver) throws Exception {
+	@Test(priority = 5, enabled = true)
+	public void loginAsGoogle(WebDriver driver) throws Exception {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
 		loginAction.loginWithGoogle(readPropertyFile("googleEmail"));
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		return driver;
+
 	}
 
-	@Test(priority = 6, enabled=true)
-	public WebDriver loginAsWeChat(WebDriver driver) throws Exception {
+	@Test(priority = 6, enabled = true)
+	public void loginAsWeChat(WebDriver driver) throws Exception {
 		loginAction = new LoginAction(driver);
 		PageFactory.initElements(driver, LoginTest.class);
 		loginAction.loginWithWeChat();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		return driver;
 	}
 
 	@AfterMethod
@@ -91,5 +85,4 @@ public class LoginTest extends ConfigurationSetup {
 		exitDriver();
 	}
 
-	
 }

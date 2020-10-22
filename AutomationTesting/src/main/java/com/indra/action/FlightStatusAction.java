@@ -1,12 +1,15 @@
 package com.indra.action;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.indra.constants.CommonActions;
 import com.indra.pages.FlightStatusPage;
+
 
 public class FlightStatusAction extends FlightStatusPage{
 
@@ -20,23 +23,25 @@ public class FlightStatusAction extends FlightStatusPage{
 
 	public void searchFlightNumber() throws InterruptedException {
 		commonCodes();
-		Thread.sleep(3000);
+		DriverWait(driver, 10);
 		commonAction.inputAction(flightNumber, "AK 6117");
-		Thread.sleep(2000);
+//		Thread.sleep(2000);
 		commonAction.clickAction(flightButton);
 	}
 	
-	public void searchByRoute() throws InterruptedException {
+	public void searchByRoute(String origin, String destination) throws InterruptedException {
 		commonCodes();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		commonAction.clickAction(searchByRouteTab);
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		commonAction.clickAction(originRoute);
-		Thread.sleep(2000);
-		commonAction.clickAction(labelText);
-		Thread.sleep(2000);
-		commonAction.clickAction(labelText);
-		Thread.sleep(2000);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		commonAction.inputAction(originField, origin);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		commonAction.inputAction(destinationField, destination);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		commonAction.clickAction(routeSearchButton);
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 	}
 	
 	private void commonCodes() {
@@ -47,4 +52,7 @@ public class FlightStatusAction extends FlightStatusPage{
 		}
 	}
 	
+	public void DriverWait(WebDriver driver, long timeOutInSeconds) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeOutInSeconds));
+	}
 }
